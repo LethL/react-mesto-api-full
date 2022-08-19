@@ -1,0 +1,5 @@
+.popup__form-btn_disabled {
+    color: rgba(0, 0, 0, .2);
+    background-color: #FFF;
+    border: 1px solid rgba(0, 0, 0, .2);
+}

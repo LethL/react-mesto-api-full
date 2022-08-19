@@ -1,0 +1,21 @@
+.popup__form-input-error {
+    font-size: 12px;
+    line-height: 12px;
+    color: #FF0000;
+    margin: 0 0 0 0;
+    box-sizing: border-box;
+    height: 12px;
+    display: block;
+    min-height: 24px;
+    opacity: 0;
+    transition: opacity .2s ease-in;
+    position: relative;
+}
+
+.popup__form-input-error::before {
+    position: absolute;
+    content: '';
+    border-top: 1px red solid;
+    width: 100%;
+    bottom: 29px;
+}

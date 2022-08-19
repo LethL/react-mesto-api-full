@@ -1,0 +1,13 @@
+.sign__form-link {
+    color: #FFF;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 15px;
+    text-align: center;
+    transition: opacity .2s linear;
+}
+
+.sign__form-link:hover {
+    opacity: .6;
+}

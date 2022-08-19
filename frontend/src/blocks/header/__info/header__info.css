@@ -1,0 +1,10 @@
+.header__info {
+    display: flex;
+}
+
+@media (max-width: 720px) {
+    .header__info {
+        width: 100%;
+       justify-content: space-between;
+    }
+}

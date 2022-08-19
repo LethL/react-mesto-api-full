@@ -1,0 +1,35 @@
+.header {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 45px 200px 0;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header::after {
+    content: "";
+    bottom: -1px;
+    position: absolute;
+    width: 100%;
+    max-width: 68.75%;
+    left: 15.63%;
+    border-bottom: 1px solid rgba(84, 84, 84, .7);
+}
+
+@media (max-width: 1080px) {
+    .header {
+        padding: 45px 100px 0;
+    }
+
+    .header::after {
+        left: 0;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    .header {
+        padding: 28px 19px 0;
+    }
+}

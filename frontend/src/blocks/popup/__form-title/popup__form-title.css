@@ -1,0 +1,16 @@
+.popup__form-title {
+    color: #000;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0;
+    margin-bottom: 46px;
+}
+
+@media (max-width: 550px) {
+    .popup__form-title {
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 73px;
+    }
+}

@@ -1,0 +1,12 @@
+.sign {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (max-width: 440px) {
+    .sign {
+       padding: 0 30px;
+    }
+}

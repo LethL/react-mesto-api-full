@@ -1,0 +1,17 @@
+.sign__form-input {
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: 2px solid #CCCCCC;
+    padding-bottom: 7px;
+    margin-bottom: 30px;
+
+    font-family: 'Inter';
+    font-size: 14px;
+    line-height: 17px;
+    color: #CCCCCC;
+}
+
+.sign__form-input::placeholder {
+    color: #CCCCCC;
+}
