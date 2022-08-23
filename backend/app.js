@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
+require('dotenv').config();
 const router = require('./routes/router');
 const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
@@ -12,7 +13,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const allowedCors = [
   'https://dmitry.mesto.nomoredomains.sbs',
   'http://dmitry.mesto.nomoredomains.sbs',
-  'localhost:3000',
+  'http://localhost:3000',
 ];
 
 const { PORT = 3000 } = process.env;
