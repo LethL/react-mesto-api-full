@@ -96,8 +96,8 @@ function App() {
     if (loggedIn) {
       api.getUserInfo()
         .then((user) => {
-          console.log(user)
-          setCurrentUser(user.currentUser)
+          console.log(user.currentUser)
+          setCurrentUser(user)
         })
         .catch((err) => console.log(err))
     }
@@ -185,7 +185,7 @@ function App() {
             setLoggedIn(true);
             history.push("/");
             console.log(res)
-            // setUserEmail(res.data.email)
+            setUserEmail(res.email)
           }
         })
         .catch((err) => console.log(err))
