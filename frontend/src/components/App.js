@@ -93,11 +93,15 @@ function App() {
   }
 
   useEffect(() => {
-    api
-      .getUserInfo()
-      .then(setCurrentUser)
-      .catch((err) => console.log(err));
-  }, []);
+    if (loggedIn) {
+      api.getUserInfo()
+        .then((user) => {
+          console.log(user)
+          setCurrentUser(user.currentUser)
+        })
+        .catch((err) => console.log(err))
+    }
+  }, [loggedIn]);
 
   useEffect(() => {
     if (loggedIn) {
@@ -132,7 +136,7 @@ function App() {
 
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
-
+    console.log(card)
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
@@ -180,6 +184,7 @@ function App() {
           if (res) {
             setLoggedIn(true);
             history.push("/");
+            console.log(res)
             // setUserEmail(res.data.email)
           }
         })
@@ -191,10 +196,13 @@ function App() {
   function handleLogin(password, email) {
     auth
       .authorize(password, email)
-      .then(() => {
-        setLoggedIn(true);
-        setUserEmail(email)
-        history.push("/");
+      .then((token) => {
+        auth.getContent(token)
+          .then((res) => {
+            setUserEmail(res.currentUser.email)
+            setLoggedIn(true)
+            history.push('/')
+          })
       })
       .catch((err) => console.log(err));
   }
