@@ -100,13 +100,15 @@ function App() {
   }, []);
 
   useEffect(() => {
-    api
-      .getInitialCards()
-      .then((data) => {
-        setCards(data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    if (loggedIn) {
+      api.getInitialCards()
+        .then((cards) => {
+          console.log(cards)
+          setCards(cards.data)
+        })
+        .catch((err) => console.log(err))
+    }
+  }, [loggedIn]);
 
   useEffect(() => {
     tokenCheck()
@@ -178,7 +180,7 @@ function App() {
           if (res) {
             setLoggedIn(true);
             history.push("/");
-            setUserEmail(res.data.email)
+            // setUserEmail(res.data.email)
           }
         })
         .catch((err) => console.log(err))
@@ -191,6 +193,7 @@ function App() {
       .authorize(password, email)
       .then(() => {
         setLoggedIn(true);
+        setUserEmail(email)
         history.push("/");
       })
       .catch((err) => console.log(err));
