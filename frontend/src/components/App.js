@@ -96,7 +96,7 @@ function App() {
     if (loggedIn) {
       api.getUserInfo()
         .then((user) => {
-          console.log(user.currentUser)
+          console.log(user)
           setCurrentUser(user)
         })
         .catch((err) => console.log(err))
@@ -199,7 +199,8 @@ function App() {
       .then((token) => {
         auth.getContent(token)
           .then((res) => {
-            setUserEmail(res.currentUser.email)
+            console.log(res)
+            setUserEmail(res.email)
             setLoggedIn(true)
             history.push('/')
           })
