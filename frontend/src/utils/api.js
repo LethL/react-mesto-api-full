@@ -13,6 +13,7 @@ class Api {
 
     getUserInfo() {
         return fetch(`${this._url}/users/me`, {
+            credentials: 'include',
             method: 'GET',
             headers: this._headers
         }).then((res) => {
@@ -22,6 +23,7 @@ class Api {
 
     getInitialCards() {
         return fetch(`${this._url}/cards`, {
+            credentials: 'include',
             method: 'GET',
             headers: this._headers
         }).then((res) => {
@@ -31,6 +33,7 @@ class Api {
 
     editUserInfo(data) {
         return fetch(`${this._url}/users/me`, {
+            credentials: 'include',
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
@@ -44,6 +47,7 @@ class Api {
 
     addCard(data) {
         return fetch(`${this._url}/cards`, {
+            credentials: 'include',
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({
@@ -57,6 +61,7 @@ class Api {
 
     deleteCard(id) {
         return fetch(`${this._url}/cards/${id}`, {
+            credentials: 'include',
             method: 'DELETE',
             headers: this._headers
         }).then((res) => {
@@ -66,6 +71,7 @@ class Api {
 
     changeLikeCardStatus(id, isLiked) {
         return fetch(`${this._url}/cards/${id}/likes`, {
+            credentials: 'include',
             method: `${isLiked ? 'PUT' : 'DELETE'}`,
             headers: this._headers
         }).then((res) => {
@@ -75,6 +81,7 @@ class Api {
 
     editAvatar(data) {
         return fetch(`${this._url}/users/me/avatar`, {
+            credentials: 'include',
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
@@ -87,9 +94,9 @@ class Api {
 }
 
 const api = new Api({
-    url: 'https://mesto.nomoreparties.co/v1/cohort-41',
+    url: 'https://api.dmitry.mesto.nomoredomains.sbs',
+    credentials: 'include',
     headers: {
-      authorization: '34ba8aa0-fdc8-4f70-8c18-1ea7527a281e',
       'Content-Type': 'application/json'
     }
 });
