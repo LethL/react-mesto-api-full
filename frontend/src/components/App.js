@@ -96,7 +96,6 @@ function App() {
     if (loggedIn) {
       api.getUserInfo()
         .then((user) => {
-          console.log(user)
           setCurrentUser(user)
         })
         .catch((err) => console.log(err))
@@ -107,7 +106,6 @@ function App() {
     if (loggedIn) {
       api.getInitialCards()
         .then((cards) => {
-          console.log(cards)
           setCards(cards.data)
         })
         .catch((err) => console.log(err))
@@ -136,12 +134,9 @@ function App() {
 
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i === currentUser._id);
-    console.log(card)
-    console.log(isLiked)
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
-        console.log(newCard)
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c))
       })
       .catch((err) => console.log(err));
@@ -184,7 +179,6 @@ function App() {
           if (res) {
             setLoggedIn(true);
             history.push("/");
-            console.log(res)
             setUserEmail(res.email)
           }
         })
@@ -199,7 +193,6 @@ function App() {
       .then((token) => {
         auth.getContent(token)
           .then((res) => {
-            console.log(res)
             setUserEmail(res.email)
             setLoggedIn(true)
             history.push('/')
