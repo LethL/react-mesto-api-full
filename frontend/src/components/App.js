@@ -199,12 +199,14 @@ function App() {
           })
       })
       .catch((err) => {
+        setInfoTooltipOpen(true);
         setStatus({
           image: errorLogo,
           message: "Что-то пошло не так! Попробуйте ещё раз.",
         });
         console.log(err);
-      });
+      })
+      .finally(() => setInfoTooltipOpen(false));
   }
 
   function logOut() {
