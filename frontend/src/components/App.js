@@ -198,7 +198,13 @@ function App() {
             history.push('/')
           })
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setStatus({
+          image: errorLogo,
+          message: "Что-то пошло не так! Попробуйте ещё раз.",
+        });
+        console.log(err);
+      });
   }
 
   function logOut() {
