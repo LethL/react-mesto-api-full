@@ -198,15 +198,13 @@ function App() {
             history.push('/')
           })
       })
-      .catch((err) => {
-        setInfoTooltipOpen(true);
+      .catch(() =>
         setStatus({
           image: errorLogo,
           message: "Что-то пошло не так! Попробуйте ещё раз.",
-        });
-        console.log(err);
-      })
-      .finally(() => setInfoTooltipOpen(false));
+        })
+      )
+      .finally(() => setInfoTooltipOpen(true));
   }
 
   function logOut() {
